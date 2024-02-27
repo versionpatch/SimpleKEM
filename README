@@ -1,0 +1,22 @@
+Compile with make.
+
+./keygen <file_name> will output a generated public key in stdout and will save a private key into file_name.
+./encaps <pk> will generate a ciphertext (u,c) and a 16-byte symmetric encryption key
+./decaps <u> <c> <private_key_file> will output a 16-byte symmetric encryption key from the given ciphertext and private key
+
+Example : 
+
+$./keygen ./key.txt
+$67db3205d0ae0a08c7748a8de69f6d4cdf169e2f3f2ee5b602059006aad243c8
+
+$./encaps 67db3205d0ae0a08c7748a8de69f6d4cdf169e2f3f2ee5b602059006aad243c8
+$u = 2ada755490b7cc3b3b2ca06f8198582cee32c188fa42c4930b487287126896ba
+$c = 546223c75ad1a423e0e294f0f5bba260ae82e55f28e46cb79286157a4effa76b
+$K = 3a25609363f1124e230f65dd3d479606
+
+$./decaps 2ada755490b7cc3b3b2ca06f8198582cee32c188fa42c4930b487287126896ba 546223c75ad1a423e0e294f0f5bba260ae82e55f28e46cb79286157a4effa76b ./key.txt
+$K = 3a25609363f1124e230f65dd3d479606
+
+$./decaps 2ada755490b7cc3b3b2ca06f8198582cee32c188fa42c4930b487287126896ba 546223c75ad1a423e0e294f0f5bba260ae82e55f28e46cb79286157a4effa76c ./key.txt
+$K = 0c9087756c8483417400a99a481e4804
+
